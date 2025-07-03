@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="/styles/styles_checkout.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="Cafe Logo" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="menu.html">Back to Menu</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div>
+    <div id="cart-summary"></div>
+    <button id="place-order">Place Order</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cafe Da Vinci. All rights reserved.</p>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartItemsDiv = document.getElementById('cart-items');
+    const cartSummaryDiv = document.getElementById('cart-summary');
+    const placeOrderBtn = document.getElementById('place-order');
+
+    function updateCartUI() {
+      cartItemsDiv.innerHTML = '';
+      cartSummaryDiv.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        placeOrderBtn.style.display = 'none';
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = (item.price * item.quantity).toFixed(2);
+        total += parseFloat(itemTotal);
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <span>${item.name}</span>
+          <div class="quantity-controls">
+            <button class="decrease" data-index="${index}">-</button>
+            <span>${item.quantity}</span>
+            <button class="increase" data-index="${index}">+</button>
+          </div>
+          <span>$${itemTotal}</span>
+        `;
+
+        cartItemsDiv.appendChild(itemDiv);
+      });
+
+      cartSummaryDiv.innerHTML = `<h3>Total: $${total.toFixed(2)}</h3>`;
+    }
+
+    function saveCartAndUpdate() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    cartItemsDiv.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      if (e.target.classList.contains('increase')) {
+        cart[index].quantity++;
+        saveCartAndUpdate();
+      } else if (e.target.classList.contains('decrease')) {
+        if (cart[index].quantity > 1) {
+          cart[index].quantity--;
+        } else {
+          cart.splice(index, 1); // remove item
+        }
+        saveCartAndUpdate();
+      }
+    });
+
+    placeOrderBtn.addEventListener('click', async () => {
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+      try {
+        const response = await fetch('/order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: cart, total })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          localStorage.removeItem('cart');
+          alert(result.message);
+          window.location.href = 'menu.html';
+        } else {
+          alert(result.message || 'Order failed.');
+        }
+      } catch (err) {
+        alert('Error placing order.');
+        console.error(err);
+      }
+    });
+
+    updateCartUI(); // initial render
+  });
+</script>
+
+</body>
+</html>

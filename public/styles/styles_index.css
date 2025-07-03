@@ -1,0 +1,389 @@
+/* @font-face rule to load the Noyha font */
+@font-face {
+    font-family: 'NoyhA';
+    src: url('/fonts/NoyhACafe-Press1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
+body {
+    font-family: 'NoyhA';
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #4B4B4B;
+}
+
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #FFFFFF;
+    padding: 15px 20px; 
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    align-items: center; /* Align items vertically in the center */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a premium feel */
+}
+
+/* Logo */
+header .logo {
+    position: absolute; /* Position logo in the top left corner */
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header .logo img {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+header .logo h1 {
+    font-size: 1.5rem; /* Smaller font size for logo text */
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Nav */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px;
+    justify-content: center; /* Center the nav items */
+    width: 100%; /* Ensure it takes full width */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #7e7b78;
+    font-size: 25px;
+    font-weight: 500;
+    gap: 100px;
+    transition: color 0.3s ease-in-out;
+    margin: 0 15px; /* Adds spacing between nav items */
+}
+
+header nav a:hover {
+    color: #FA8072; /* Peach hover effect */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+    text-align: center;
+    padding: 200px 20px; /* Adjust padding to provide space around the content */
+    background: url('/images/ambience2.png') no-repeat center center; /* Add your image */
+    background-size: cover; /* Ensure the image covers the section */
+    color: #fff9f9;
+    transition: background-color 0.3s ease-in-out;
+    position: relative; /* Ensure the content sits on top of the background */
+}
+
+.hero h2 {
+    font-size: 60px;
+    font-family: 'NoyhA';
+    transition: transform 0.3s ease-in-out;
+    z-index: 1; /* Ensures text is above the background */
+}
+
+.hero p {
+    font-size: 20px;
+    font-family: 'NoyhA';
+    transition: transform 0.3s ease-in-out;
+    z-index: 1; /* Ensures text is above the background */
+}
+
+.hero h2:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.hero p:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.hero p, .hero .cta-button {
+    z-index: 1; /* Ensure other content appears above the background */
+}
+
+.hero .cta-button {
+    background-color: #4B4B4B; /* Dark grey for button */
+    color: #FFFFFF;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hero .cta-button:hover {
+    background-color: #FA8072; /* Peach hover effect */
+    color: #FFFFFF;
+}
+
+
+/* Highlights Section */
+.highlights {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.highlights article {
+    background-color: #FFFFFF;
+    border: 2px solid #E0E0E0; /* Light grey border */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.highlights .cta-button {
+    background-color: #FA8072; /* Dark grey for button */
+    color: #FFFFFF;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.highlights article:hover {
+    transform: translateY(-10px); /* Hover animation for articles */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.highlights img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.highlights img:hover {
+    transform: scale(1.05); /* Slight zoom effect on image hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.highlights h3 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.whats-happening {
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden; /* Initially hide the section */
+    transition: opacity 1s ease-in, visibility 0s linear 1s; /* Fade-in with delay for visibility */
+}
+
+/* This class will be added to show the section when it enters the viewport */
+.whats-happening.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in, visibility 0s linear 0s; /* Fade-in without delay for visibility */
+}
+
+.slide-up-image {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 2s ease-in, transform 2s ease-in;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.whats-happening h2{
+    font-size: 30px;
+}
+
+
+.whats-happening.visible .slide-up-image {
+    opacity: 1;
+    transform: translateY(0); /* Image slides up when in view */
+}
+
+.celebration-message {
+    font-size: 20px;
+}
+
+/* Apply a small size to the image */
+.slide-up-image img {
+    max-width: 300px; /* Small image size */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.celebration-message strong {
+    color: #FA8072; /* Highlight items with a peach color */
+}
+
+/* Optional: Style for small screen responsiveness */
+@media screen and (max-width: 600px) {
+    .slide-up-image img {
+        max-width: 120px; /* Smaller image on mobile devices */
+    }
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #7e7b78;
+    padding: 20px 40px; /* Compact padding */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribute content to left and right */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Spacing between sections */
+}
+
+/* Logo and Description (Left) */
+.footer-left {
+    display: flex;
+    flex-direction: column; /* Stack logo and description */
+    gap: 10px; /* Space between logo and description */
+    max-width: 600px; /* Limit the width of the left content */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-logo img {
+    max-width: 80px; /* Set logo size */
+    height: auto;
+}
+
+/* Social Media Links and Newsletter Form (Right) */
+.footer-right {
+    display: flex;
+    flex-direction: column; /* Stack social links and form */
+    align-items: flex-end; /* Align to the right */
+    gap: 20px; /* Space between sections */
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #7e7b78;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #FA8072; /* Peach color on hover */
+}
+
+/* Newsletter Form */
+footer form {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+}
+
+footer input[type="email"] {
+    padding: 5px;
+    border: 1px solid #E0E0E0; /* Light grey border for input */
+    border-radius: 5px;
+    width: 200px; /* Set input width */
+    transition: border-color 0.3s ease-in-out;
+}
+
+footer input[type="email"]:focus {
+    border-color: #FA8072; /* Peach color when focused */
+}
+
+footer button {
+    padding: 10px 15px;
+    background-color: #FA8072;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+footer button:hover {
+    background-color: #3B5323; /* Darker color when hovered */
+    color: #FFFFFF;
+    transform: scale(1.05); /* Slight scale effect for button hover */
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    font-size: 14px;
+    color: #7e7b78;
+}
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #F9F9F9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.contact-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 30px;
+}
+
+.contact-button {
+    padding: 12px 25px;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+    background-color: #e68900;
+}

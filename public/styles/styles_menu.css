@@ -1,0 +1,309 @@
+/* @font-face rule to load the Noyha font */
+@font-face {
+    font-family: 'NoyhA';
+    src: url('/fonts/NoyhACafe-Press1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* General Styles */
+body {
+    font-family: 'NoyhA';
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #4B4B4B;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #FFFFFF;
+    padding: 15px 20px; 
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    align-items: center; /* Align items vertically in the center */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a premium feel */
+}
+
+/* Logo */
+header .logo {
+    position: absolute; /* Position logo in the top left corner */
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header .logo img {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+header .logo h1 {
+    font-size: 1.5rem; /* Smaller font size for logo text */
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Nav */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px;
+    justify-content: center; /* Center the nav items */
+    width: 100%; /* Ensure it takes full width */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #7e7b78;
+    font-size: 25px;
+    font-weight: 500;
+    gap: 100px;
+    transition: color 0.3s ease-in-out;
+    margin: 0 15px; /* Adds spacing between nav items */
+}
+
+header nav a:hover {
+    color: #FA8072; /* Peach hover effect */
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.menu-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template:repeat(2,1fr) / repeat(2,1fr);
+    gap: -5 0%;
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    margin-top: 20px;
+    padding: 0; /* Remove extra padding to avoid unexpected spacing */
+}
+
+.menu-box {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 60%; /* Set the width of the box */  
+    margin: 0 auto; /* Center the box horizontally */
+}
+
+.menu-box:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+.menu-box h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.menu-item {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #f9f9f9;
+}
+
+.menu-item .add-to-cart {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: none;
+  padding: 5px 10px;
+  background-color: #6552D0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-item:hover .add-to-cart {
+  display: block;
+}
+
+
+.item-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2dba7b; /* Greenish color */
+}
+
+/* Optional: Add hover effect for the price */
+.item-price:hover {
+    color: #218c58; /* Darker green on hover */
+}
+
+.open {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    text-align: center; /* Aligns text in the center */
+    padding: 5px;
+    background-color: #FA8072; /* Optional: Set background color */
+    font-size: 18px; /* Optional: Adjust font size */
+    font-weight: bold; /* Optional: Make text bold */
+    color: #000000; /* Optional: Set text color */
+    border: 2px solid #FA8072   ; /* Border around the div */
+    border-radius: 12px; /* Rounded corners */
+    max-width: 600px; /* Optional: Limit the width of the box */
+    margin: 0 auto; /* Center it horizontally in the container */
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #7e7b78;
+    padding: 20px 40px; /* Compact padding */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribute content to left and right */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Spacing between sections */
+}
+
+/* Logo and Description (Left) */
+.footer-left {
+    display: flex;
+    flex-direction: column; /* Stack logo and description */
+    gap: 10px; /* Space between logo and description */
+    max-width: 600px; /* Limit the width of the left content */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-logo img {
+    max-width: 80px; /* Set logo size */
+    height: auto;
+}
+
+/* Social Media Links and Newsletter Form (Right) */
+.footer-right {
+    display: flex;
+    flex-direction: column; /* Stack social links and form */
+    align-items: flex-end; /* Align to the right */
+    gap: 20px; /* Space between sections */
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #7e7b78;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #FA8072; /* Peach color on hover */
+}
+
+/* Newsletter Form */
+footer form {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+}
+
+footer input[type="email"] {
+    padding: 5px;
+    border: 1px solid #E0E0E0; /* Light grey border for input */
+    border-radius: 5px;
+    width: 200px; /* Set input width */
+    transition: border-color 0.3s ease-in-out;
+}
+
+footer input[type="email"]:focus {
+    border-color: #FA8072; /* Peach color when focused */
+}
+
+footer button {
+    padding: 10px 15px;
+    background-color: #FA8072;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+footer button:hover {
+    background-color: #3B5323; /* Darker color when hovered */
+    color: #FFFFFF;
+    transform: scale(1.05); /* Slight scale effect for button hover */
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    font-size: 14px;
+    color: #7e7b78;
+}
+
+.cart-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 20px;
+  z-index: 999;
+}
+
+#cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content-left, .content-right {
+        width: 100%;
+    }
+
+    .about-section, .about-section-reverse {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        display: block;
+        text-align: center;
+    }
+}

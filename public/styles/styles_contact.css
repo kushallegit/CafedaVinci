@@ -1,0 +1,240 @@
+/* @font-face rule to load the Noyha font */
+@font-face {
+    font-family: 'NoyhA';
+    src: url('/fonts/NoyhACafe-Press1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
+body {
+    font-family: 'NoyhA';
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #4B4B4B;
+}
+
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #FFFFFF;
+    padding: 15px 20px; 
+    display: flex;
+    justify-content: center; /* Center the nav items */
+    align-items: center; /* Align items vertically in the center */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a premium feel */
+}
+
+/* Logo */
+header .logo {
+    position: absolute; /* Position logo in the top left corner */
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header .logo img {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+header .logo h1 {
+    font-size: 1.5rem; /* Smaller font size for logo text */
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Nav */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 20px;
+    justify-content: center; /* Center the nav items */
+    width: 100%; /* Ensure it takes full width */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #7e7b78;
+    font-size: 25px;
+    font-weight: 500;
+    gap: 100px;
+    transition: color 0.3s ease-in-out;
+    margin: 0 15px; /* Adds spacing between nav items */
+}
+
+header nav a:hover {
+    color: #FA8072; /* Peach hover effect */
+}
+
+/* About Section Styles */
+.about-section, .about-section-reverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: slideUp 1s forwards;
+}
+
+.about-section {
+    flex-direction: row;
+}
+
+.about-section-reverse {
+    flex-direction: row-reverse;
+}
+
+.content-left, .content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    padding: 20px;
+}
+
+.section-image {
+    width: 20%;
+    height: auto;
+    transition: transform 0.5s ease-out;
+    transform: translateY(30px); /* Start the image lower */
+}
+
+/* Animation */
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1, h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #F8F8F8, #E0E0E0); /* Light grey gradient */
+    color: #7e7b78;
+    padding: 20px 40px; /* Compact padding */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribute content to left and right */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Spacing between sections */
+}
+
+/* Logo and Description (Left) */
+.footer-left {
+    display: flex;
+    flex-direction: column; /* Stack logo and description */
+    gap: 10px; /* Space between logo and description */
+    max-width: 600px; /* Limit the width of the left content */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-logo img {
+    max-width: 80px; /* Set logo size */
+    height: auto;
+}
+
+/* Social Media Links and Newsletter Form (Right) */
+.footer-right {
+    display: flex;
+    flex-direction: column; /* Stack social links and form */
+    align-items: flex-end; /* Align to the right */
+    gap: 20px; /* Space between sections */
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #7e7b78;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: #FA8072; /* Peach color on hover */
+}
+
+/* Newsletter Form */
+footer form {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+}
+
+footer input[type="email"] {
+    padding: 5px;
+    border: 1px solid #E0E0E0; /* Light grey border for input */
+    border-radius: 5px;
+    width: 200px; /* Set input width */
+    transition: border-color 0.3s ease-in-out;
+}
+
+footer input[type="email"]:focus {
+    border-color: #FA8072; /* Peach color when focused */
+}
+
+footer button {
+    padding: 10px 15px;
+    background-color: #FA8072;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+footer button:hover {
+    background-color: #3B5323; /* Darker color when hovered */
+    color: #FFFFFF;
+    transform: scale(1.05); /* Slight scale effect for button hover */
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    font-size: 14px;
+    color: #7e7b78;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content-left, .content-right {
+        width: 100%;
+    }
+
+    .about-section, .about-section-reverse {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        display: block;
+        text-align: center;
+    }
+}

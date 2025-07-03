@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/styles/styles_contact.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Authentic Cafe Logo" />
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-intro">
+            <h1>Need Help? Contact Us</h1>
+            <p>Our customer service representatives are standing by to assist you. With this contact form, you can reach the following departments:</p>
+
+            <p>For quicker response, contact us at <strong>1-437-000-0001</strong> to speak with a live agent.</p>
+        </section>
+
+        <section class="contact-form">
+            <h2>Contact Me</h2>
+            <p>Fields marked with an <span>*</span> are required</p>
+            <div class="help-section">
+                <label for="help-category">How can we help you?</label>
+                <select id="help-category" name="help-category" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="careers">Careers</option>
+                    <option value="deliveries">Deliveries</option>
+                    <option value="inquiries">Inquiries</option>
+                    <option value="general">General Questions</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+            <form action="#" method="POST" id="contactForm">
+                <label for="name">Name <span>*</span></label>
+                <input type="text" id="name" name="name" required />
+
+                <label for="email">Email <span>*</span></label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="message">Message <span>*</span></label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section class="confirmation">
+            <p>After submitting this form, you will receive an automatic confirmation email from us within a few minutes. Please check your spam or junk folder if you don't see it in your inbox and mark it as "Not Spam" to ensure you receive our future responses. We aim to reply to all inquiries within 24 hours.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="index.html" class="footer-logo">
+                    <img src="images/logo.png" alt="Logo" />
+                </a>
+                <div class="footer-description">
+                    Located in the heart of Toronto, we invite you to share our love and
+                    passion for coffee and community. We offer a cozy atmosphere with a
+                    wide variation in music and a mix of people from all cultures and
+                    ages. Be welcomed by friendly staff every time you visit, or Shop
+                    Online from the comfort of your home.                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+
+                <form>
+                    <input type="email" placeholder="Your Email" />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <p>&copy; 2025 Cafe Da Vinci. All rights reserved.</p>
+    </footer>
+
+    <script src="/scripts/scripts_contact.js"></script>
+</body>
+
+</html>
